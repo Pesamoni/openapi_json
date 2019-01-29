@@ -1,0 +1,203 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.3",
+    "title" : "Pesaway Pesamoni API Documentation"
+  },
+  "host" : "pesamoni.com",
+  "basePath" : "/api/live/v1",
+  "schemes" : [ "https" ],
+  "security" : [ {
+    "apiusername" : [ ],
+    "apipassword" : [ ]
+  } ],
+  "paths" : {
+    "/transactions" : {
+      "post" : {
+        "description" : "Below are parameters and their respective expected responses. In order to try out the service, simply click Try it out.",
+        "parameters" : [ {
+          "name" : "method",
+          "in" : "query",
+          "description" : "Enter a request method. To check for request methods <a href=''>click here</a>",
+          "required" : true,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "amount",
+          "in" : "query",
+          "description" : "Enter the amount you would like to request for. <p style=\"color:red\">This method applies for request methods <b>acreceive, acreceivekeac, acsend, acsendkeac, acsendbank, pesab2c, sendairtime, cardaccept</b></p>",
+          "required" : true,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "mobile",
+          "in" : "query",
+          "description" : "Enter the mobile number you would like to execute the above method in format 256.... or 254...<p style=\"color:red\">This method applies for request methods <b>acreceive, acreceivekeac, acsend, acsendkeac, senderid, sendsms, sendairtime</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "holdername",
+          "in" : "query",
+          "description" : "Enter name of payer for Visa/MasterCard transactions<p style=\"color:red\">This method applies for request method <b>cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "cardnumber",
+          "in" : "query",
+          "description" : "Enter the Visa/MasterCard cardnumber<p style=\"color:red\">This method applies for request method <b>cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "cvv",
+          "in" : "query",
+          "description" : "Enter the Visa/MasterCard cvv<p style=\"color:red\">This method applies for request method <b>cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "exp",
+          "in" : "query",
+          "description" : "Enter the Visa/MasterCard expiry date in the format MM/YYYY e.g 07/2030<p style=\"color:red\">This method applies for request method <b>cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "currency",
+          "in" : "query",
+          "description" : "Enter the currency you intend to make the transaction for Visa/MasterCard based transactions<p style=\"color:red\">This method applies for request method <b>cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "account",
+          "in" : "query",
+          "description" : "Enter the Pesamoni account you would like to use for this transaction<p style=\"color:red\">This method applies for request method <b>paybills</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "reference",
+          "in" : "query",
+          "description" : "Enter your user generated transaction reference<p style=\"color:red\">This method applies for request methods <b>acreceive, acreceivekeac, acsend, acsendkeac, sendsms, transactionstatus, sendairtime, pesab2c, sendsms, cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "genericmsg",
+          "in" : "query",
+          "description" : "Enter your user generated generic message for the requested transaction<p style=\"color:red\">This method applies for request methods <b>acreceive, acreceivekeac, acsend, acsendkeac, sendsms, sendairtime, pesab2c, sendsms, cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "token",
+          "in" : "query",
+          "description" : "Enter your user generated token for the above mentioned method<p style=\"color:red\">This method applies for request methods <b>acreceive, acreceivekeac, acsend, acsendkeac, sendsms, sendairtime, pesab2c, sendsms, cardaccept</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "bouquet",
+          "in" : "query",
+          "description" : "Enter the bouquet or package you would like to pay for<p style=\"color:red\">This method applies for request methods <b>paybills</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "payoption",
+          "in" : "query",
+          "description" : "Enter your prefered payment option<p style=\"color:red\">This method applies for request methods <b>paybills</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        }, {
+          "name" : "meternumber",
+          "in" : "query",
+          "description" : "Enter the meter number for the intended payment<p style=\"color:red\">This method applies for request methods <b>paybills</b></p>",
+          "required" : false,
+          "type" : "string",
+          "minimum" : 1
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "object",
+              "properties" : {
+                "status" : {
+                  "type" : "string",
+                  "example" : "success"
+                },
+                "token" : {
+                  "type" : "string",
+                  "example" : "483748394"
+                },
+                "description" : {
+                  "type" : "string",
+                  "example" : "Your transaction was successful"
+                },
+                "mobile" : {
+                  "type" : "string",
+                  "example" : "25677777777"
+                },
+                "statuscode" : {
+                  "type" : "string",
+                  "example" : "0"
+                },
+                "transaction_type" : {
+                  "type" : "string",
+                  "example" : "debit"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "apiusername" : {
+      "type" : "apiKey",
+      "name" : "apiusername",
+      "in" : "query"
+    },
+    "apipassword" : {
+      "type" : "apiKey",
+      "name" : "apipassword",
+      "in" : "query"
+    }
+  },
+  "definitions" : {
+    "inline_response_200" : {
+      "properties" : {
+        "status" : {
+          "type" : "string",
+          "example" : "success"
+        },
+        "token" : {
+          "type" : "string",
+          "example" : "483748394"
+        },
+        "description" : {
+          "type" : "string",
+          "example" : "Your transaction was successful"
+        },
+        "mobile" : {
+          "type" : "string",
+          "example" : "25677777777"
+        },
+        "statuscode" : {
+          "type" : "string",
+          "example" : "0"
+        },
+        "transaction_type" : {
+          "type" : "string",
+          "example" : "debit"
+        }
+      }
+    }
+  }
+}
